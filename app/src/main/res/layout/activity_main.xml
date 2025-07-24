@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -23,5 +24,11 @@
         android:text="Tiếp"
         tools:layout_editor_absoluteX="153dp"
         tools:layout_editor_absoluteY="124dp" />
+
+    <WebView
+        android:layout_width="409dp"
+        android:layout_height="354dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="375dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
