@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HungThinhApartmentManagement">
         <activity
+            android:name=".Activity.Person_information"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Activity_person_information"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
