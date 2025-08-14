@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F7FB"
+    android:orientation="vertical">
+
+    <!-- Thanh tiêu đề với nút quay lại -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="#9CACBC">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:background="?android:selectableItemBackground"
+            android:contentDescription="Back"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="#fff"
+            tools:ignore="UseAppTint,TouchTargetSizeCheck" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Đặt lịch sử dụng tiện ích"
+            android:textColor="#fff"
+            android:textSize="19sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <!-- Vùng chuyển step nhỏ (indicator) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="#9CACBC"
+        android:paddingBottom="12dp">
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/bg_dot_active" android:layout_margin="4dp"/>
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/bg_dot_inactive" android:layout_margin="4dp"/>
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/bg_dot_inactive" android:layout_margin="4dp"/>
+
+    </LinearLayout>
+
+    <!-- Tiêu đề hướng dẫn -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chọn studio theo sở thích của bạn"
+        android:textColor="#22385C"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="#F3F7FB"
+        android:padding="18dp"/>
+
+    <!-- Danh sách tiện ích studios -->
+
+    <include layout="@layout/item_facility" />
+
+</LinearLayout>
