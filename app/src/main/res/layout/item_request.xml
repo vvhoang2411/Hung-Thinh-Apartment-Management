@@ -68,7 +68,7 @@
             android:layout_height="32dp"
             android:background="@android:color/transparent"
             android:contentDescription="Sửa"
-            android:src="@drawable/outline_app_registration_24" />
+            android:src="@drawable/ic_edit" />
 
         <Space
             android:layout_width="8dp"
