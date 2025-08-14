@@ -49,7 +49,7 @@
             android:layout_weight="1"
             android:background="@drawable/bg_tab_selected"
             android:text="Điện"
-            android:textColor="#FFFFFF"
+            android:textColor="#324A72"
             android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
