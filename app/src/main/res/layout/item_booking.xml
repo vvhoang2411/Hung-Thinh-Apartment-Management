@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@drawable/bg_booking_card"
+    android:layout_marginBottom="18dp"
+    android:padding="18dp">
+
+    <!-- Phần văn bản thông tin đặt lịch -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvFacility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiện ích: Gym"
+            android:textColor="#222"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày đặt lịch: 29/07/2025"
+            android:textColor="#222"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thời hạn: 3 tháng"
+            android:textColor="#222"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"/>
+    </LinearLayout>
+
+    <!-- Nút Sửa (bên phải, trên) -->
+    <ImageButton
+        android:id="@+id/btnEdit"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="Edit"
+        android:src="@drawable/ic_edit"
+        android:tint="#D3A21F"
+        tools:ignore="UseAppTint,TouchTargetSizeCheck" />
+
+    <!-- Nút Xóa (bên phải, dưới) -->
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="Delete"
+        android:src="@drawable/ic_delete"
+        android:tint="#EF274A"
+        tools:ignore="UseAppTint,TouchTargetSizeCheck" />
+
+</RelativeLayout>

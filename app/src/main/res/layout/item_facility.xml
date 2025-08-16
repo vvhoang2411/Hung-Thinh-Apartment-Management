@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_root"
     android:layout_width="match_parent"
     android:layout_height="70dp"
@@ -19,7 +20,7 @@
         android:background="@drawable/bg_icon"
         android:scaleType="centerInside"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/pool"/>
+        android:src="@drawable/img_pool"/>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -49,6 +50,7 @@
         android:id="@+id/imgChevron"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/ic_chevron_right"
-        android:tint="#AAB1BF"/>
+        android:src="@drawable/img_pool"
+        android:tint="#AAB1BF"
+        tools:ignore="UseAppTint" />
 </LinearLayout>

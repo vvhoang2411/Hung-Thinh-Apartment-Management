@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="0dp">
+
+    <!-- Biểu tượng check thành công -->
+    <ImageView
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/img_success"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="28dp"
+        android:contentDescription="Success" />
+
+    <!-- Thông báo cảm ơn -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cảm ơn bạn đã đặt lịch"
+        android:textColor="#EF274A"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="18dp"/>
+
+    <!-- Thông tin chi tiết đặt lịch -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:layout_marginBottom="32dp">
+
+        <TextView
+            android:id="@+id/tvSuccessFacility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiện ích: Gym"
+            android:textColor="#222"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvSuccessDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày đặt lịch: 29/07/2025"
+            android:textColor="#222"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvSuccessDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thời hạn: 3 tháng"
+            android:textColor="#222"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Nút hoàn thành -->
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:text="Hoàn thành"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:background="@drawable/bg_button_success"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="20dp"/>
+</LinearLayout>
