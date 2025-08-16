@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HungThinhApartmentManagement</string>
+    <string name="form_title"><b>Tiêu đề </b><font color='#FF0000'>*</font></string>
+    <string name="form_content"><b>Nội dung </b><font color='#FF0000'>*</font></string>
+    <string name="form_media"><b>Ảnh/Video </b><font color='#FF0000'>*</font></string>
+
 </resources>

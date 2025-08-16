@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F7FB">
+
+    <!-- Phần nội dung chính của bạn -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Thanh tiêu đề (Không thay đổi) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:background="#212A55">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:background="?android:selectableItemBackground"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="#fff"
+                tools:ignore="UseAppTint,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Thông báo"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Bọc danh sách trong ScrollView để có thể cuộn -->
+            <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Danh sách thông báo (Không thay đổi) -->
+                <include layout="@layout/item_notify"/>
+                <include layout="@layout/item_notify"/>
+                <include layout="@layout/item_notify"/>
+                <include layout="@layout/item_notify"/>
+                <include layout="@layout/item_notify"/>
+                <!-- Thêm nhiều item ở đây để thấy hiệu ứng cuộn -->
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- Nút Thêm (Floating Action Button) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ic_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="30dp"
+        android:src="@drawable/ic_add"
+        app:tint="#FFFFFF"
+        app:backgroundTint="#212A55"
+        app:shapeAppearanceOverlay="@style/CircularFab"
+        android:contentDescription="Thêm thông báo" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
