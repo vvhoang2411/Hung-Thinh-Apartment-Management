@@ -38,13 +38,11 @@ public class MyResidentAdapter extends ArrayAdapter<Person> {
         TextView tvRoom = convertView.findViewById(R.id.tvRoom);
         TextView tvPhone = convertView.findViewById(R.id.tvPhone);
         TextView tvEmail = convertView.findViewById(R.id.tvEmail);
-        TextView tvPassword = convertView.findViewById(R.id.tvPassword);
 
         tvName.setText(person.getName());
         tvRoom.setText(person.getRoom());
         tvPhone.setText(person.getPhone());
         tvEmail.setText(person.getEmail());
-        tvPassword.setText(person.getPassword());
 
         return convertView;
     }

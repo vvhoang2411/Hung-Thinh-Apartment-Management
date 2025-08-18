@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HungThinhApartmentManagement">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.FinanceManagement"
             android:exported="false" />
+        <!-- <activity -->
+        <!-- android:name=".MainActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
-            android:name=".Activity.ResidentManagement"
+            android:name=".Activity.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
