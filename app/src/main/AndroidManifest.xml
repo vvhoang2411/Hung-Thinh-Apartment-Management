@@ -11,14 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HungThinhApartmentManagement">
+
+
         <activity
-            android:name=".Activity.Person_information"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Activity_person_information"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".Activity.Parking"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
