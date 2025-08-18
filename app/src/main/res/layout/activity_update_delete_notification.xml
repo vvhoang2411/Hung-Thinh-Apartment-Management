@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F3F7FB"
+    tools:context=".Activity.CreateNotificationActivity">
+
+    <!-- Thanh tiêu đề (Toolbar) -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#212A55"
+        android:elevation="4dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@android:color/white"
+            android:contentDescription="Quay lại"/>
+
+        <TextView
+            android:id="@+id/tvToolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Tạo thông báo"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Nội dung Form có thể cuộn -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tạo thông báo mới cho cư dân"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- Trường Tiêu đề -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/form_title"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/editTitle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_edit_text"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:hint="Nhập tiêu đề"
+                android:inputType="textCapSentences"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Trường Nội dung -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/form_content"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/editContent"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/bg_edit_text"
+                android:gravity="top|start"
+                android:hint="Nhập nội dung thông báo"
+                android:inputType="textMultiLine"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Trường Ảnh/Video -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/form_media"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cho phép tổng dung lượng tối đa 30 MB"
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- SỬA LẠI KHUNG NÀY -->
+            <FrameLayout
+                android:id="@+id/flImagePicker"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/bg_add_photos"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_camera"
+                    android:contentDescription="Chọn ảnh"/>
+            </FrameLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <!-- CỤM NÚT MỚI ĐÃ ĐƯỢC THÊM VÀO ĐÂY -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="32dp">
+
+                <!-- Nút Cập nhật -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_weight="1"
+                    android:text="Cập nhật"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    app:backgroundTint="#212A55"
+                    app:cornerRadius="12dp"/>
+
+                <!-- Khoảng cách giữa 2 nút -->
+                <Space
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content"/>
+
+                <!-- Nút Xóa -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDelete"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_weight="1"
+                    android:text="Xóa"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    app:backgroundTint="#FF0000"
+                    app:cornerRadius="12dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

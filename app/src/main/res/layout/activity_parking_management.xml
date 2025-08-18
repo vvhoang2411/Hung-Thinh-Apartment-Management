@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- Header màu xanh -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#1A2B4E"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp">
+
+        <!-- Dòng 1: Back, Title, Thêm -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quản lý bãi đỗ xe"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"/>
+            <TextView
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Thêm"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_alignParentEnd="true"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </RelativeLayout>
+
+        <!-- Dòng 2: Phân trang khu vực -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical">
+            <ImageButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_arrow_left"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A1"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"/>
+            <ImageButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_arrow_left"
+                android:rotation="180"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Danh sách (Dùng RecyclerView trong thực tế) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:listitem="@layout/item_parking_slot"/>
+
+    <!-- Dấu chấm phân trang -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#E0E0E0"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/dot_inactive" android:layout_marginEnd="8dp"/>
+        <View android:layout_width="20dp" android:layout_height="8dp" android:background="@drawable/dot_active" android:layout_marginEnd="8dp"/>
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/dot_inactive" android:layout_marginEnd="8dp"/>
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/dot_inactive"/>
+
+    </LinearLayout>
+
+</LinearLayout>
