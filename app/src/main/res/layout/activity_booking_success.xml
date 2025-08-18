@@ -36,6 +36,28 @@
         android:paddingRight="18dp"
         android:layout_marginBottom="32dp">
 
+        <!-- Thêm tên -->
+        <TextView
+            android:id="@+id/tvSuccessName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên: Nguyễn Văn A"
+            android:textColor="#222"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Thêm số điện thoại -->
+        <TextView
+            android:id="@+id/tvSuccessPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SĐT: 0123456789"
+            android:textColor="#222"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
         <TextView
             android:id="@+id/tvSuccessFacility"
             android:layout_width="wrap_content"

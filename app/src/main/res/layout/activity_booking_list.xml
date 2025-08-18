@@ -5,7 +5,8 @@
     android:background="#fff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,9 +18,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Danh sách đặt lịch (RecyclerView) -->
-
-    <!-- Nút quay lại -->
+    <!-- Danh sách đặt lịch (RecyclerView hoặc include) -->
     <include layout="@layout/item_booking" />
 
     <Button
@@ -33,5 +32,4 @@
         android:background="@drawable/bg_primary_button2"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="32dp"/>
-
 </LinearLayout>

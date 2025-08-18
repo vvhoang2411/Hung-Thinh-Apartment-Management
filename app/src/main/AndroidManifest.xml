@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HungThinhApartmentManagement">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.BookingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity.ResidentHomeActivity"/>
+        <activity android:name=".Activity.BookingDeltailActivity" />
+        <activity android:name=".Activity.BookingSuccessActivity"/>
+        <activity android:name=".Activity.BookingListActivity"/>
+
+
     </application>
 
 </manifest>

@@ -40,14 +40,61 @@
         </LinearLayout>
 
         <!-- Ảnh tiện ích -->
+
+        <!-- Tên -->
         <ImageView
             android:id="@+id/imgFacility"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="137dp"
             android:layout_marginTop="23dp"
             android:background="@drawable/bg_image_rounded"
-            android:src="@drawable/img_gym"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_gym" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Tên"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#22385C" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginTop="8dp"
+            android:hint="Nhập tên của bạn"
+            android:inputType="textPersonName"
+            android:textColor="#22385C" />
+
+        <!-- Số điện thoại -->
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Số điện thoại"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#22385C" />
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginTop="8dp"
+            android:hint="Nhập số điện thoại"
+            android:inputType="phone"
+            android:textColor="#22385C" />
+
 
         <!-- Ngày bắt đầu -->
         <TextView

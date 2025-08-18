@@ -6,7 +6,6 @@
     android:background="#ABA5A5"
     android:orientation="vertical">
 
-    <!-- Thanh tiêu đề với nút quay lại -->
 
     <!-- Vùng chuyển step nhỏ (indicator) -->
     <RelativeLayout

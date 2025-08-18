@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="72dp"
     android:orientation="horizontal"
-    android:background="@drawable/bg_transaction_card"
+    android:background="@drawable/bg_card"
     android:gravity="center_vertical"
     android:paddingStart="18dp"
     android:paddingEnd="18dp"

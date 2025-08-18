@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_root"
+    android:id="@+id/itemFacilityLayout"
     android:layout_width="match_parent"
     android:layout_height="70dp"
     android:orientation="horizontal"
@@ -13,6 +13,7 @@
     android:clickable="true"
     android:focusable="true">
 
+    <!-- Icon facility -->
     <ImageView
         android:id="@+id/imgFacility"
         android:layout_width="44dp"
@@ -20,8 +21,9 @@
         android:background="@drawable/bg_icon"
         android:scaleType="centerInside"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/img_pool"/>
+        android:src="@drawable/img_pool" />
 
+    <!-- Thông tin facility -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -35,22 +37,18 @@
             android:text="Bể Bơi"
             android:textColor="#22385C"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvFacilityPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="350VND/1 tháng"
+            android:text="350 VND/1 tháng"
             android:textColor="#808392"
-            android:textSize="13sp"/>
+            android:textSize="13sp" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imgChevron"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/img_pool"
-        android:tint="#AAB1BF"
-        tools:ignore="UseAppTint" />
+
+
+
 </LinearLayout>
