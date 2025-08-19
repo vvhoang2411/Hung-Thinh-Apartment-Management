@@ -7,7 +7,7 @@
 
     <!-- Thanh tiêu đề -->
     <include
-        layout="@layout/appbar_finance"
+        layout="@layout/appbar_apart"
         android:id="@+id/appbarCudan"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

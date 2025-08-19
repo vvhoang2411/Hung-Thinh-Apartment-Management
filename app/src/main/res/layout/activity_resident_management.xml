@@ -30,7 +30,7 @@
             android:layout_weight="1"
             android:layout_height="40dp"
             android:background="@drawable/search_background"
-            android:hint="Tên chủ hộ"
+            android:hint="Tên cư dân"
             android:padding="8dp"/>
 
         <Button

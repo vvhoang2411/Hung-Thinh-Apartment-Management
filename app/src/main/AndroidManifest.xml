@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HungThinhApartmentManagement">
         <activity
-            android:name=".Activity.FinanceManagement"
+            android:name=".Activity.ApartmentManagement"
             android:exported="false" />
         <!-- <activity -->
         <!-- android:name=".MainActivity" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".Activity.Login"
+            android:name=".Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity.ResidentManagement"/>
     </application>
 
 </manifest>

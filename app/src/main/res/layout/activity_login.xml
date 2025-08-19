@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="212dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/logoHungThinh" />
+            android:src="@drawable/logo_hung_thinh" />
     </LinearLayout>
 
     <!-- Form đăng nhập -->
