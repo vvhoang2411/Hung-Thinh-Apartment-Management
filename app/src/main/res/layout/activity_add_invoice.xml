@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Thanh tiêu đề -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?android:selectableItemBackground"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="#222"
+                tools:ignore="UseAppTint,TouchTargetSizeCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:text="Thêm mới hóa đơn"
+                android:textStyle="bold"
+                android:textColor="#111"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <!-- Mã hóa đơn (readonly) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:text="Mã hóa đơn"
+            android:textColor="#222"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/edtInvoiceId"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/bg_edittext_readonly"
+            android:clickable="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:textColor="#333"
+            android:textSize="16sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <!-- Mã phòng -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mã phòng"
+            android:textColor="#222"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/edtRoomId"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/bg_edittext_outline"
+            android:hint=""
+            android:textColor="#333"
+            android:textSize="16sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <!-- Tổng số tiền -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tổng số tiền"
+            android:textColor="#222"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/edtTotal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/bg_edittext_outline"
+            android:hint=""
+            android:inputType="numberDecimal"
+            android:textColor="#333"
+            android:textSize="16sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <!-- Loại hóa đơn -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Loại hóa đơn"
+            android:textColor="#222"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+        <Spinner
+            android:id="@+id/spinnerType"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_edittext_outline"
+            android:layout_marginBottom="7dp"/>
+
+        <!-- Hạn đóng -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hạn đóng"
+            android:textColor="#222"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_edittext_outline"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="7dp">
+
+            <EditText
+                android:id="@+id/edtDate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="12/12/2012"
+                android:focusable="false"
+                android:clickable="true"
+                android:paddingLeft="12dp"
+                android:textColor="#333"
+                android:textSize="16sp"/>
+
+            <ImageButton
+                android:id="@+id/btnPickDate"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Pick date"
+                android:src="@drawable/ic_calendar"
+                android:tint="#848484"
+                tools:ignore="UseAppTint,TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <!-- Trạng thái -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trạng thái"
+            android:textColor="#222"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+        <Spinner
+            android:id="@+id/spinnerStatus"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_edittext_outline"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Nút Thêm mới -->
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Thêm mới"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:background="@drawable/bg_primary_button"
+            android:layout_marginTop="6dp"/>
+
+    </LinearLayout>
+</ScrollView>
