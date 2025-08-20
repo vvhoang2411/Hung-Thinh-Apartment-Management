@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="70dp"
     android:orientation="horizontal"
-    android:background="@drawable/bg_notify_card"
+    android:background="@drawable/bg_card"
     android:gravity="center_vertical"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"

@@ -53,11 +53,11 @@
                 android:orientation="vertical">
 
                 <!-- Danh sách thông báo (Không thay đổi) -->
-                <include layout="@layout/item_notify"/>
-                <include layout="@layout/item_notify"/>
-                <include layout="@layout/item_notify"/>
-                <include layout="@layout/item_notify"/>
-                <include layout="@layout/item_notify"/>
+                <include layout="@layout/mt_item_notify"/>
+                <include layout="@layout/mt_item_notify"/>
+                <include layout="@layout/mt_item_notify"/>
+                <include layout="@layout/mt_item_notify"/>
+                <include layout="@layout/mt_item_notify"/>
                 <!-- Thêm nhiều item ở đây để thấy hiệu ứng cuộn -->
 
             </LinearLayout>

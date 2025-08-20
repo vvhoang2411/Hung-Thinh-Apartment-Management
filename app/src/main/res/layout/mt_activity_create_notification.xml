@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F3F7FB"
-    tools:context=".Activity.CreateNotificationActivity">
+    android:background="#F3F7FB">
 
     <!-- Thanh tiêu đề (Toolbar) -->
     <RelativeLayout
@@ -118,73 +117,95 @@
                 android:textSize="12sp"
                 android:layout_marginBottom="8dp"/>
 
-            <!-- SỬA LẠI KHUNG NÀY -->
-            <FrameLayout
-                android:id="@+id/flImagePicker"
+            <ImageView
+                android:id="@+id/preview_image_view"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_marginBottom="24dp"
                 android:background="@drawable/bg_add_photos"
                 android:clickable="true"
+                android:contentDescription="Tải lên ảnh hoặc video"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_add_photos" />
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_camera"
-                    android:contentDescription="Chọn ảnh"/>
-            </FrameLayout>
+            <!-- Tùy chỉnh người nhận -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gửi đến"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:id="@+id/recipient_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_all_residents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toàn bộ cư dân"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radio_specific_floor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Từng tầng"/>
+
+                <RadioButton
+                    android:id="@+id/radio_specific_apartment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Từng căn hộ"/>
+            </RadioGroup>
+
+            <!-- Các trường nhập liệu cho tầng/căn hộ -->
+            <EditText
+                android:id="@+id/floor_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập số tầng"
+                android:visibility="gone"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_edit_text"
+                android:padding="12dp"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/apartment_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập số căn hộ"
+                android:visibility="gone"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_edit_text"
+                android:padding="12dp"
+                android:inputType="text"/>
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
 
-            <!-- CỤM NÚT MỚI ĐÃ ĐƯỢC THÊM VÀO ĐÂY -->
-            <LinearLayout
+            <!-- Nút Gửi -->
+            <Button
+                android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="32dp">
-
-                <!-- Nút Cập nhật -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnUpdate"
-                    android:layout_width="0dp"
-                    android:layout_height="55dp"
-                    android:layout_weight="1"
-                    android:text="Cập nhật"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textAllCaps="false"
-                    app:backgroundTint="#212A55"
-                    app:cornerRadius="12dp"/>
-
-                <!-- Khoảng cách giữa 2 nút -->
-                <Space
-                    android:layout_width="16dp"
-                    android:layout_height="wrap_content"/>
-
-                <!-- Nút Xóa -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnDelete"
-                    android:layout_width="0dp"
-                    android:layout_height="55dp"
-                    android:layout_weight="1"
-                    android:text="Xóa"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textAllCaps="false"
-                    app:backgroundTint="#FF0000"
-                    app:cornerRadius="12dp"/>
-
-            </LinearLayout>
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                android:text="Gửi thông báo"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="#212A55"
+                app:cornerRadius="12dp"/>
 
         </LinearLayout>
-
     </ScrollView>
 
 </LinearLayout>

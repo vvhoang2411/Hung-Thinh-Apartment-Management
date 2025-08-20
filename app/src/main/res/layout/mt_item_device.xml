@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Hình ảnh/Icon đại diện -->
+        <ImageView
+            android:id="@+id/imageViewDeviceIcon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_security_cam"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="Icon thiết bị" />
+
+        <!-- Khối thông tin văn bản -->
+        <LinearLayout
+            android:id="@+id/linearLayoutInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/imageViewDeviceIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonOptions">
+
+            <!-- Tên thiết bị -->
+            <TextView
+                android:id="@+id/textViewDeviceName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Camera an ninh XYZ"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="?android:attr/textColorPrimary" />
+
+            <!-- Mã thiết bị -->
+            <TextView
+                android:id="@+id/textViewDeviceCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Mã: CAM-12345"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Trạng thái -->
+            <TextView
+                android:id="@+id/textViewDeviceLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Vị trí: Tầng 2"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Nút tùy chọn (Sửa/Xóa) -->
+        <ImageButton
+            android:id="@+id/buttonOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_vert"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Tùy chọn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
