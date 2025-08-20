@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#FFF"
         android:padding="24dp">
@@ -29,22 +29,21 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thêm phí căn hộ"
+                android:text="Thêm căn hộ"
                 android:textColor="#111"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:layout_marginStart="12dp"/>
         </LinearLayout>
 
-        <!-- Tên chủ hộ -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên chủ hộ"
+            android:text="Căn hộ"
             android:textStyle="bold"
             android:paddingBottom="4dp"/>
         <EditText
-            android:id="@+id/edtName"
+            android:id="@+id/edtNameApt"
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:background="@drawable/field_background"
@@ -52,87 +51,10 @@
             android:textSize="16sp"
             android:layout_marginBottom="14dp"/>
 
-        <!-- Căn hộ -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Căn hộ"
-            android:textStyle="bold"
-            android:paddingBottom="4dp"/>
-        <Spinner
-            android:id="@+id/spinnerRoom"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:background="@drawable/field_background"
-            android:layout_marginBottom="14dp"/>
-
-        <!-- Điện -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Điện"
-            android:textStyle="bold"
-            android:paddingBottom="4dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:orientation="horizontal"
-            android:background="@drawable/field_background"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="14dp">
-            <EditText
-                android:id="@+id/edtDien"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:inputType="number"
-                android:background="@android:color/transparent"
-                android:paddingStart="10dp"
-                android:textSize="16sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="VND"
-                android:textColor="#888"
-                android:paddingEnd="12dp"/>
-        </LinearLayout>
-
-        <!-- Nước -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nước"
-            android:textStyle="bold"
-            android:paddingBottom="4dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:orientation="horizontal"
-            android:background="@drawable/field_background"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="14dp">
-            <EditText
-                android:id="@+id/edtNuoc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:inputType="number"
-                android:background="@android:color/transparent"
-                android:paddingStart="10dp"
-                android:textSize="16sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="VND"
-                android:textColor="#888"
-                android:paddingEnd="12dp"/>
-        </LinearLayout>
-
-        <!-- Internet -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Internet"
+            android:text="Diện tích"
             android:textStyle="bold"
             android:paddingBottom="4dp"/>
         <LinearLayout
@@ -154,12 +76,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VND"
+                android:text="m²"
+                android:textSize="20sp"
                 android:textColor="#888"
                 android:paddingEnd="12dp"/>
         </LinearLayout>
 
-        <!-- Trạng thái thanh toán -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mô tả"
+            android:textStyle="bold"
+            android:paddingBottom="4dp"/>
+        <EditText
+            android:id="@+id/edtDescApt"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/field_background"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="14dp"/>
+
         <RadioGroup
             android:id="@+id/rgStatus"
             android:layout_width="wrap_content"
@@ -171,14 +108,14 @@
                 android:id="@+id/rbUnpaid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chưa thanh toán"
+                android:text="Còn trống"
                 android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/rbPaid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đã thanh toán"
+                android:text="Đã ở"
                 android:layout_marginStart="24dp"/>
         </RadioGroup>
 
