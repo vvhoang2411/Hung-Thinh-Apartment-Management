@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">HungThinhApartmentManagement</string>
+    <string name="desc_add">Thêm mới</string>
+    <string-array name="apartment_names">
+        <item>A101</item>
+        <item>A102</item>
+        <item>B201</item>
+        <item>B202</item>
+    </string-array>
+
+    <string name="status_pending">Đang chờ phản hồi</string>
+    <string name="status_received">Đã tiếp nhận</string>
+    <string name="status_completed">Đã xử lý</string>
+    <string name="status_unknown">Trạng thái không xác định</string>
 </resources>
