@@ -31,53 +31,43 @@
             android:id="@+id/linearLayoutInfo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@id/imageViewDeviceIcon"
-            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/buttonOptions">
+            app:layout_constraintStart_toEndOf="@id/imageViewDeviceIcon"
+            app:layout_constraintTop_toTopOf="parent">
 
             <!-- Tên thiết bị -->
             <TextView
                 android:id="@+id/textViewDeviceName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Camera an ninh XYZ"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:textColor="?android:attr/textColorPrimary" />
+                android:textColor="?android:attr/textColorPrimary"
+                tools:text="Camera an ninh XYZ" />
 
             <!-- Mã thiết bị -->
             <TextView
                 android:id="@+id/textViewDeviceCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Mã: CAM-12345"
+                android:layout_marginTop="4dp"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 android:textColor="?android:attr/textColorSecondary"
-                android:layout_marginTop="4dp"/>
+                tools:text="Mã: CAM-12345" />
 
             <!-- Trạng thái -->
             <TextView
                 android:id="@+id/textViewDeviceLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Vị trí: Tầng 2"
+                android:layout_marginTop="4dp"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 android:textColor="?android:attr/textColorSecondary"
-                android:layout_marginTop="4dp"/>
+                tools:text="Vị trí: Tầng 2" />
         </LinearLayout>
 
         <!-- Nút tùy chọn (Sửa/Xóa) -->
-        <ImageButton
-            android:id="@+id/buttonOptions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_more_vert"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Tùy chọn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
