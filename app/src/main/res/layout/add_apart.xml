@@ -43,7 +43,7 @@
             android:textStyle="bold"
             android:paddingBottom="4dp"/>
         <EditText
-            android:id="@+id/edtNameApt"
+            android:id="@+id/edtNumberApt"
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:background="@drawable/field_background"
@@ -65,7 +65,7 @@
             android:gravity="center_vertical"
             android:layout_marginBottom="16dp">
             <EditText
-                android:id="@+id/edtInternet"
+                android:id="@+id/edtAreaApt"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
