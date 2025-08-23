@@ -2,15 +2,15 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F3F7FB">
+    android:background="#F6F7FA"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <!-- Thanh tiêu đề -->
+    <!-- Header: Thanh tiêu đề -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="62dp"
+        android:layout_height="64dp"
         android:background="#22385C">
 
         <ImageButton
@@ -18,28 +18,37 @@
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="10dp"
             android:background="?android:selectableItemBackground"
             android:contentDescription="Back"
             android:src="@drawable/ic_arrow_back"
-            android:tint="#fff"
+            android:tint="#FFFFFF"
             tools:ignore="UseAppTint,TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:text="Thông báo"
-            android:textColor="#fff"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_centerInParent="true"/>
     </RelativeLayout>
 
     <!-- Danh sách thông báo -->
-    <include layout="@layout/item_notify"/>
-    <include layout="@layout/item_notify"/>
-    <include layout="@layout/item_notify"/>
-    <include layout="@layout/item_notify"/>
-    <include layout="@layout/item_notify"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNotifications"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:clipToPadding="false"/>
+
+    <!-- Phần nền xám phía dưới -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#D2D4D7"/>
 </LinearLayout>

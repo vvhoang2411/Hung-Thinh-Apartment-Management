@@ -1,6 +1,5 @@
 package com.example.hungthinhapartmentmanagement.Adapter;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +46,7 @@ public class RepairRequestListAdapter extends RecyclerView.Adapter<RepairRequest
 
         holder.tvTitle.setText("Vấn đề: " + request.getTitle());
         holder.tvDescription.setText("Ghi chú: " + request.getDescription());
+        holder.tvFullName.setText("Người gửi: " + request.getFullName());
 
         // Chuyển đổi Timestamp thành chuỗi ngày tháng
         if (request.getCreatedAt() != null) {
@@ -129,7 +129,7 @@ public class RepairRequestListAdapter extends RecyclerView.Adapter<RepairRequest
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitle, tvDescription, tvStatus, tvCreateAt;
+        TextView tvTitle, tvDescription, tvStatus, tvCreateAt, tvFullName;
         ImageButton btnCancel;
 
         public ViewHolder(@NonNull View itemView) {
@@ -138,6 +138,7 @@ public class RepairRequestListAdapter extends RecyclerView.Adapter<RepairRequest
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvStatus = itemView.findViewById(R.id.tvStatus);
             tvCreateAt = itemView.findViewById(R.id.tvCreateAt);
+            tvFullName = itemView.findViewById(R.id.tvFullName); // Thêm ánh xạ cho tvFullName
             btnCancel = itemView.findViewById(R.id.btnCancel);
         }
     }

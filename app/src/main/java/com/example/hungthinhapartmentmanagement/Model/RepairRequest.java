@@ -11,11 +11,14 @@ public class RepairRequest {
     private boolean isActive;
     private Timestamp createdAt;
     private Timestamp updatedAt;
+    private String fullName; // Thêm trường fullName
+    private String phone;    // Thêm trường phone
+    private String email; //Thêm trường email
 
     public RepairRequest() {
     }
 
-    public RepairRequest(String apartmentId, String title, String description, String status, boolean isActive, Timestamp createdAt, Timestamp updatedAt) {
+    public RepairRequest(String apartmentId, String title, String description, String status, boolean isActive, Timestamp createdAt, Timestamp updatedAt, String fullName, String phone, String email) {
         this.apartmentId = apartmentId;
         this.title = title;
         this.description = description;
@@ -23,6 +26,9 @@ public class RepairRequest {
         this.isActive = isActive;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.email = email;
     }
 
     public String getApartmentId() {
@@ -90,5 +96,29 @@ public class RepairRequest {
 
     public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

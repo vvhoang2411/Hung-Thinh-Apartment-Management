@@ -13,6 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.hungthinhapartmentmanagement.Activity.RepairRequestListActivity;
 import com.google.firebase.Timestamp;
 import com.example.hungthinhapartmentmanagement.Helper.RepairRequestHelper;
 import com.example.hungthinhapartmentmanagement.Model.RepairRequest;
@@ -23,6 +24,9 @@ import java.util.Date;
 public class RepairRequestActivity extends AppCompatActivity {
 
     private String apartmentId;
+    private String fullName;
+    private String phone;
+    private String email;
     private EditText edtProblem, edtNote;
     private Button btnSend;
     private ImageButton btnBack;
@@ -34,10 +38,28 @@ public class RepairRequestActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_repair_request);
 
-        // Nhận apartmentId từ Intent
+        // Nhận apartmentId, fullName, phone từ Intent
         apartmentId = getIntent().getStringExtra("apartmentId");
+        fullName = getIntent().getStringExtra("fullName");
+        phone = getIntent().getStringExtra("phone");
+        email = getIntent().getStringExtra("email");
         if (apartmentId == null || apartmentId.trim().isEmpty()) {
             Toast.makeText(this, "Không tìm thấy apartmentId", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+        if (fullName == null || fullName.trim().isEmpty()) {
+            Toast.makeText(this, "Không tìm thấy fullName", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+        if (phone == null || phone.trim().isEmpty()) {
+            Toast.makeText(this, "Không tìm thấy phone", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+        if (email == null || email.trim().isEmpty()) {
+            Toast.makeText(this, "Không tìm thấy email", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -59,6 +81,9 @@ public class RepairRequestActivity extends AppCompatActivity {
         btnBack.setOnClickListener(v -> {
             Intent intent = new Intent(RepairRequestActivity.this, RepairRequestListActivity.class);
             intent.putExtra("apartmentId", apartmentId);
+            intent.putExtra("fullName", fullName);
+            intent.putExtra("phone", phone);
+            intent.putExtra("email", email);
             startActivity(intent);
             finish();
         });
@@ -73,7 +98,7 @@ public class RepairRequestActivity extends AppCompatActivity {
                 return;
             }
 
-            // Tạo đối tượng RepairRequest
+            // Tạo đối tượng RepairRequest với fullName và phone
             RepairRequest request = new RepairRequest(
                     apartmentId,
                     title,
@@ -81,7 +106,10 @@ public class RepairRequestActivity extends AppCompatActivity {
                     "pending",
                     true,
                     new Timestamp(new Date()),
-                    new Timestamp(new Date())
+                    new Timestamp(new Date()),
+                    fullName,
+                    phone,
+                    email
             );
 
             // Gửi yêu cầu lên Firestore
@@ -91,6 +119,9 @@ public class RepairRequestActivity extends AppCompatActivity {
                     Toast.makeText(RepairRequestActivity.this, "Gửi yêu cầu thành công", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(RepairRequestActivity.this, RepairRequestListActivity.class);
                     intent.putExtra("apartmentId", apartmentId);
+                    intent.putExtra("fullName", fullName);
+                    intent.putExtra("phone", phone);
+                    intent.putExtra("email", email);
                     startActivity(intent);
                     finish();
                 }

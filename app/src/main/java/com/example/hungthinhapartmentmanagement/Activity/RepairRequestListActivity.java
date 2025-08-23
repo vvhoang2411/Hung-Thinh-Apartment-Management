@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hungthinhapartmentmanagement.Adapter.RepairRequestListAdapter;
 import com.example.hungthinhapartmentmanagement.Helper.RepairRequestHelper;
-import com.example.hungthinhapartmentmanagement.MainActivity;
 import com.example.hungthinhapartmentmanagement.Model.RepairRequest;
 import com.example.hungthinhapartmentmanagement.R;
 
@@ -26,6 +25,9 @@ import java.util.List;
 public class RepairRequestListActivity extends AppCompatActivity {
 
     private String apartmentId;
+    private String fullName;
+    private String phone;
+    private String email;
     private RecyclerView recyclerRequests;
     private RepairRequestListAdapter adapter;
     private List<RepairRequest> repairRequestList;
@@ -36,10 +38,28 @@ public class RepairRequestListActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_repair_request_list);
 
-        // Nhận apartmentId từ Intent
+        // Nhận apartmentId, fullName, phone từ Intent
         apartmentId = getIntent().getStringExtra("apartmentId");
+        fullName = getIntent().getStringExtra("fullName");
+        phone = getIntent().getStringExtra("phone");
+        email = getIntent().getStringExtra("email");
         if (apartmentId == null || apartmentId.trim().isEmpty()) {
             Toast.makeText(this, "Không tìm thấy apartmentId", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+        if (fullName == null || fullName.trim().isEmpty()) {
+            Toast.makeText(this, "Không tìm thấy fullName", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+        if (phone == null || phone.trim().isEmpty()) {
+            Toast.makeText(this, "Không tìm thấy phone", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+        if (email == null || email.trim().isEmpty()) {
+            Toast.makeText(this, "Không tìm thấy email", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -62,7 +82,7 @@ public class RepairRequestListActivity extends AppCompatActivity {
 
         ImageButton btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> {
-            Intent intent = new Intent(RepairRequestListActivity.this, MainActivity.class);
+            Intent intent = new Intent(RepairRequestListActivity.this, ResidentMainActivity.class);
             startActivity(intent);
             finish();
         });
@@ -71,13 +91,16 @@ public class RepairRequestListActivity extends AppCompatActivity {
         btnAddRequest.setOnClickListener(v -> {
             Intent intent = new Intent(RepairRequestListActivity.this, RepairRequestActivity.class);
             intent.putExtra("apartmentId", apartmentId);
+            intent.putExtra("fullName", fullName);
+            intent.putExtra("phone", phone);
+            intent.putExtra("email", email);
             startActivity(intent);
         });
     }
 
     private void loadRepairRequests() {
         RepairRequestHelper helper = new RepairRequestHelper();
-        helper.getActiveRequestsByApartmentId(apartmentId, new RepairRequestHelper.OnDataRetrievedListener() {
+        helper.getActiveRequestsByApartmentId(apartmentId, email, new RepairRequestHelper.OnDataRetrievedListener() {
             @Override
             public void onDataRetrieved(List<RepairRequest> repairRequests) {
                 repairRequestList.clear();
