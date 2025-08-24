@@ -1,12 +1,102 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:background="#162954"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
+    <!-- Logo và Đăng Xuất (có thể dùng LinearLayout nằm ngang) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="24dp"
+        android:paddingTop="32dp"
+        android:paddingEnd="24dp">
+
+        <!-- Logo giả lập bằng TextView (bạn thay bằng ImageView logo thực tế) -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="220dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo_hung_thinh" />
+
+        <ImageButton
+            android:id="@+id/ibtnSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:tint="#FFFFFF"
+            android:background="#162954"
+            app:srcCompat="@drawable/ic_logout" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="Đăng xuất" />
+
+
+    </LinearLayout>
+
+    <!-- Tiêu đề -->
     <TextView
-        android:text="Tab Quản lý"
-        android:textSize="20sp"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Trang Quản Lý"
+        android:textColor="#ffffff"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- Các nút chức năng chính -->
+    <Button
+        android:id="@+id/btnResManage"
+        android:layout_width="260dp"
+        android:layout_height="54dp"
+        android:text="Quản lý cư dân"
+        android:textAllCaps="false"
+        android:textColor="#223163"
+        android:backgroundTint="#E9D5BD"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnApartManage"
+        android:layout_width="260dp"
+        android:layout_height="54dp"
+        android:text="Quản lý căn hộ"
+        android:textAllCaps="false"
+        android:textColor="#223163"
+        android:backgroundTint="#E9D5BD"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnDeviceManage"
+        android:layout_width="260dp"
+        android:layout_height="54dp"
+        android:text="Quản lý thiết bị"
+        android:textAllCaps="false"
+        android:textColor="#223163"
+        android:backgroundTint="#E9D5BD"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+
 </LinearLayout>

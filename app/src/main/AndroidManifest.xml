@@ -27,6 +27,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.ResidentManagement" />
+        <activity android:name=".Activity.AddApartActivity"/>
+        <activity android:name=".Activity.EditApartActivity"/>
+
     </application>
 
 </manifest>

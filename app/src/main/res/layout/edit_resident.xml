@@ -125,7 +125,7 @@
 
         <!-- Nút thêm mới -->
         <Button
-            android:id="@+id/btnAdd"
+            android:id="@+id/btnTransAdd"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="12dp"
