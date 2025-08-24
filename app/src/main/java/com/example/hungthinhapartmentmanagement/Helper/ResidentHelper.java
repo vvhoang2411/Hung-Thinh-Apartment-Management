@@ -8,7 +8,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ResidentHelper {
@@ -35,7 +34,7 @@ public class ResidentHelper {
                 });
     }
 
-    public void updateResidentInfo(String email, String fullName, String gender, String phone, Date birthday) {
+    public void updateResidentInfo(String email, String fullName, String gender, String phone, String birthday) {
         residentsRef.whereEqualTo("email", email).get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {

@@ -3,7 +3,7 @@ package com.example.hungthinhapartmentmanagement.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -14,22 +14,16 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.hungthinhapartmentmanagement.Helper.ResidentHelper;
 import com.example.hungthinhapartmentmanagement.Model.Resident;
 import com.example.hungthinhapartmentmanagement.R;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 public class EditProfileActivity extends AppCompatActivity {
 
+    private static final String TAG = "EditProfileActivity";
     private EditText etFullName, etPhone, etBirthday;
     private RadioGroup rgGender;
     private RadioButton rbMale, rbFemale;
@@ -70,38 +64,42 @@ public class EditProfileActivity extends AppCompatActivity {
                 String fullName = etFullName.getText().toString().trim();
                 String gender = rbMale.isChecked() ? "Nam" : "Nữ";
                 String phone = etPhone.getText().toString().trim();
-                Date birthday = parseDate(etBirthday.getText().toString().trim());
+                String birthday = etBirthday.getText().toString().trim();
+
                 residentHelper.updateResidentInfo(email, fullName, gender, phone, birthday);
-                Toast.makeText(this, "Thông tin đã được cập nhật", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, MainResidentActivity.class);
-                intent.putExtra("fragment", "HomeResident"); // Chuyển về HomeResidentFragment
+                Log.d(TAG, "Updating resident info with email: " + email + ", birthday: " + birthday);
+                Toast.makeText(this, "Cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
+
+                // Chuyển về ResidentMainActivity và load HomeResidentFragment
+                Intent intent = new Intent(this, ResidentMainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.putExtra("fragment", "HomeResident");
+                Log.d(TAG, "Navigating to ResidentMainActivity with fragment: HomeResident");
                 startActivity(intent);
                 finish();
             }
         });
 
-        // Xử lý sự kiện btnBack và btnCancel
+        // Xử lý sự kiện btnBack
         btnBack.setOnClickListener(v -> finish());
-        findViewById(R.id.btnCancel).setOnClickListener(v -> finish());
     }
 
     private void loadResidentInfo() {
-        residentHelper.getResidentByEmail(email, new ResidentHelper.OnResidentLoadedListener() {
-            @Override
-            public void onResidentsLoaded(List<Resident> residents) {
-                if (!residents.isEmpty()) {
-                    Resident resident = residents.get(0);
-                    etFullName.setText(resident.getFullName());
-                    etPhone.setText(resident.getPhone());
-                    if ("Nam".equals(resident.getGender())) rbMale.setChecked(true);
-                    else rbFemale.setChecked(true);
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    if (resident.getBirthday() != null) {
-                        etBirthday.setText(sdf.format(resident.getBirthday()));
-                    }
-                }
+        Intent intent = getIntent();
+        if (intent != null) {
+            etFullName.setText(intent.getStringExtra("fullName"));
+            etPhone.setText(intent.getStringExtra("phone"));
+            String gender = intent.getStringExtra("gender");
+            if ("Nam".equals(gender)) {
+                rbMale.setChecked(true);
+            } else if ("Nữ".equals(gender)) {
+                rbFemale.setChecked(true);
             }
-        });
+            String birthday = intent.getStringExtra("birthday");
+            if (birthday != null) {
+                etBirthday.setText(birthday);
+            }
+        }
     }
 
     private void showDatePickerDialog() {
@@ -140,24 +138,22 @@ public class EditProfileActivity extends AppCompatActivity {
         return true;
     }
 
-    private Date parseDate(String dateStr) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        sdf.setLenient(false);
-        try {
-            return sdf.parse(dateStr);
-        } catch (ParseException e) {
-            return null;
-        }
-    }
-
     private boolean isValidDate(String dateStr) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        sdf.setLenient(false);
-        try {
-            sdf.parse(dateStr);
-            return true;
-        } catch (ParseException e) {
-            return false;
+        if (dateStr.matches("\\d{2}/\\d{2}/\\d{4}")) {
+            try {
+                String[] parts = dateStr.split("/");
+                int day = Integer.parseInt(parts[0]);
+                int month = Integer.parseInt(parts[1]) - 1; // Tháng bắt đầu từ 0
+                int year = Integer.parseInt(parts[2]);
+                Calendar calendar = Calendar.getInstance();
+                calendar.setLenient(false);
+                calendar.set(year, month, day);
+                calendar.getTime(); // Kiểm tra tính hợp lệ
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
         }
+        return false;
     }
 }
