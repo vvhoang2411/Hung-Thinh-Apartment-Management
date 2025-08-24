@@ -32,16 +32,16 @@ public class ManagementDetailRequestActivity extends AppCompatActivity {
         setContentView(R.layout.mt_activity_management_detail_request);
 
         // Ánh xạ các view
-        tvVanDe = findViewById(R.id.tv_van_de);
-        tvGhiChu = findViewById(R.id.tv_ghi_chu);
-        tvNguoiLienHe = findViewById(R.id.tv_nguoi_lien_he);
-        tvSoDienThoai = findViewById(R.id.tv_sdt);
-        tvDiaChi = findViewById(R.id.tv_dia_chi);
-        rgTrangThai = findViewById(R.id.rg_trang_thai);
-        rbChuaTiepNhan = findViewById(R.id.rb_chua_tiep_nhan);
-        rbDaTiepNhan = findViewById(R.id.rb_da_tiep_nhan);
-        rbDaHoanThanh = findViewById(R.id.rb_da_hoan_thanh);
-        btnCapNhat = findViewById(R.id.btn_cap_nhat);
+        tvVanDe = findViewById(R.id.tv_problem);
+        tvGhiChu = findViewById(R.id.tv_note);
+        tvNguoiLienHe = findViewById(R.id.tv_contact_person);
+        tvSoDienThoai = findViewById(R.id.tv_phone_number);
+        tvDiaChi = findViewById(R.id.tv_address);
+        rgTrangThai = findViewById(R.id.rg_status);
+        rbChuaTiepNhan = findViewById(R.id.rb_pending);
+        rbDaTiepNhan = findViewById(R.id.rb_recived);
+        rbDaHoanThanh = findViewById(R.id.rb_done);
+        btnCapNhat = findViewById(R.id.btn_update);
         btnBack = findViewById(R.id.btnBack);
 
         // Kiểm tra null views

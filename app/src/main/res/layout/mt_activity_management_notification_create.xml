@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F3F7FB">
+    android:background="#F3F7FB"
+    android:fitsSystemWindows="true">
 
     <!-- Thanh tiêu đề (Toolbar) -->
     <RelativeLayout
@@ -25,7 +25,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_arrow_back"
             app:tint="@android:color/white"
-            android:contentDescription="Quay lại"/>
+            android:contentDescription="Quay lại" />
 
         <TextView
             android:id="@+id/tvToolbarTitle"
@@ -56,78 +56,49 @@
                 android:text="Tạo thông báo mới cho cư dân"
                 android:textColor="#333333"
                 android:textSize="16sp"
-                android:layout_marginBottom="24dp"/>
+                android:layout_marginBottom="24dp" />
 
             <!-- Trường Tiêu đề -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/form_title"
+                android:text="Tiêu đề"
                 android:textColor="#333333"
                 android:textSize="14sp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" />
 
             <EditText
                 android:id="@+id/editTitle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/bg_edit_text"
+                android:background="@drawable/bg_edittext_outline"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 android:hint="Nhập tiêu đề"
                 android:inputType="textCapSentences"
                 android:textSize="16sp"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="16dp" />
 
             <!-- Trường Nội dung -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/form_content"
+                android:text="Nội dung"
                 android:textColor="#333333"
                 android:textSize="14sp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" />
 
             <EditText
                 android:id="@+id/editContent"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@drawable/bg_edit_text"
+                android:background="@drawable/bg_edittext_outline"
                 android:gravity="top|start"
                 android:hint="Nhập nội dung thông báo"
                 android:inputType="textMultiLine"
                 android:padding="12dp"
                 android:textSize="16sp"
-                android:layout_marginBottom="16dp"/>
-
-            <!-- Trường Ảnh/Video -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/form_media"
-                android:textColor="#333333"
-                android:textSize="14sp"
-                android:layout_marginBottom="4dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cho phép tổng dung lượng tối đa 30 MB"
-                android:textColor="#666666"
-                android:textSize="12sp"
-                android:layout_marginBottom="8dp"/>
-
-            <ImageView
-                android:id="@+id/preview_image_view"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/bg_add_photos"
-                android:clickable="true"
-                android:contentDescription="Tải lên ảnh hoặc video"
-                android:focusable="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_add_photos" />
+                android:layout_marginBottom="16dp" />
 
             <!-- Tùy chỉnh người nhận -->
             <TextView
@@ -136,7 +107,7 @@
                 android:text="Gửi đến"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" />
 
             <RadioGroup
                 android:id="@+id/recipient_options"
@@ -149,19 +120,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Toàn bộ cư dân"
-                    android:checked="true"/>
+                    android:checked="true" />
 
                 <RadioButton
                     android:id="@+id/radio_specific_floor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Từng tầng"/>
+                    android:text="Từng tầng" />
 
                 <RadioButton
                     android:id="@+id/radio_specific_apartment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Từng căn hộ"/>
+                    android:text="Từng căn hộ" />
             </RadioGroup>
 
             <!-- Các trường nhập liệu cho tầng/căn hộ -->
@@ -170,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/bg_edit_text"
+                android:background="@drawable/bg_edittext_outline"
                 android:hint="Nhập số tầng"
                 android:inputType="text"
                 android:padding="12dp"
@@ -180,62 +151,30 @@
                 android:id="@+id/apartment_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_edit_text"
                 android:hint="Nhập số căn hộ"
-                android:inputType="text"
+                android:visibility="gone"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_edittext_outline"
                 android:padding="12dp"
-                android:visibility="gone" />
+                android:inputType="text" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
-            <!-- CỤM NÚT MỚI ĐÃ ĐƯỢC THÊM VÀO ĐÂY -->
-            <LinearLayout
+            <!-- Nút Gửi -->
+            <Button
+                android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="32dp">
-
-                <!-- Nút Cập nhật -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnUpdate"
-                    android:layout_width="0dp"
-                    android:layout_height="55dp"
-                    android:layout_weight="1"
-                    android:text="Cập nhật"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textAllCaps="false"
-                    app:backgroundTint="#212A55"
-                    app:cornerRadius="12dp"/>
-
-                <!-- Khoảng cách giữa 2 nút -->
-                <Space
-                    android:layout_width="16dp"
-                    android:layout_height="wrap_content"/>
-
-                <!-- Nút Xóa -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnDelete"
-                    android:layout_width="0dp"
-                    android:layout_height="55dp"
-                    android:layout_weight="1"
-                    android:text="Xóa"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textAllCaps="false"
-                    app:backgroundTint="#FF0000"
-                    app:cornerRadius="12dp"/>
-
-            </LinearLayout>
-
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                android:text="Gửi thông báo"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="#212A55"
+                app:cornerRadius="12dp" />
         </LinearLayout>
-
     </ScrollView>
-
 </LinearLayout>

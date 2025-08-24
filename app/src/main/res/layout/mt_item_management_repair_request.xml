@@ -11,7 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="16dp">
 
         <ImageView
@@ -24,7 +24,7 @@
             app:tint="#3498DB" />
 
         <TextView
-            android:id="@+id/tv_ho_phan_anh"
+            android:id="@+id/tv_address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="@id/iv_icon" />
 
         <TextView
-            android:id="@+id/tv_ngay_phan_anh"
+            android:id="@+id/tv_date_request"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#A9A9A9"
@@ -55,7 +55,7 @@
             app:layout_constraintTop_toBottomOf="@id/iv_icon" />
 
         <TextView
-            android:id="@+id/label_noi_dung"
+            android:id="@+id/label_problem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -66,13 +66,13 @@
             app:layout_constraintTop_toBottomOf="@id/divider" />
 
         <TextView
-            android:id="@+id/tv_noi_dung"
+            android:id="@+id/tv_problem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#333333"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/label_noi_dung" />
+            app:layout_constraintTop_toBottomOf="@id/label_problem" />
 
         <TextView
             android:id="@+id/label_trang_thai"
@@ -83,10 +83,10 @@
             android:textColor="#A9A9A9"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_noi_dung" />
+            app:layout_constraintTop_toBottomOf="@id/tv_problem" />
 
         <TextView
-            android:id="@+id/tv_trang_thai"
+            android:id="@+id/tv_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#2ECC71"

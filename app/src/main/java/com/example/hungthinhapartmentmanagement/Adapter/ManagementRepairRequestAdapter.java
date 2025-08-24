@@ -35,7 +35,7 @@ public class ManagementRepairRequestAdapter extends RecyclerView.Adapter<Managem
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_management_repair_request, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mt_item_management_repair_request, parent, false);
         return new ViewHolder(view);
     }
 
@@ -116,10 +116,10 @@ public class ManagementRepairRequestAdapter extends RecyclerView.Adapter<Managem
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvHoPhanAnh = itemView.findViewById(R.id.tv_ho_phan_anh);
-            tvNgayPhanAnh = itemView.findViewById(R.id.tv_ngay_phan_anh);
-            tvNoiDung = itemView.findViewById(R.id.tv_noi_dung);
-            tvTrangThai = itemView.findViewById(R.id.tv_trang_thai);
+            tvHoPhanAnh = itemView.findViewById(R.id.tv_address);
+            tvNgayPhanAnh = itemView.findViewById(R.id.tv_date_request);
+            tvNoiDung = itemView.findViewById(R.id.tv_problem);
+            tvTrangThai = itemView.findViewById(R.id.tv_status);
             btnDetail = itemView.findViewById(R.id.btnDetail);
 
             // Debug null views

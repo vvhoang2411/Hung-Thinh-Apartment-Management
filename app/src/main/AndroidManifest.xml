@@ -12,10 +12,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HungThinhApartmentManagement">
         <activity
-            android:name=".Activity.Sendnotifications"
-            android:exported="false" />
+            android:name=".Activity.ManagementDetailRequestActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".Activity.ManagementRepairRequestActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".Activity.ManagementNotificationCreateActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".Activity.ManagementNotificationDetailActivity"
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".MainActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".Activity.ManagementNotificationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

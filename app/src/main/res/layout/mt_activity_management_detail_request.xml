@@ -99,7 +99,7 @@
                     android:textColor="#A9A9A9" />
 
                 <TextView
-                    android:id="@+id/tv_van_de"
+                    android:id="@+id/tv_problem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#555555"
@@ -113,7 +113,7 @@
                     android:textColor="#A9A9A9" />
 
                 <TextView
-                    android:id="@+id/tv_ghi_chu"
+                    android:id="@+id/tv_note"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#555555"
@@ -182,7 +182,7 @@
                             android:textColor="#A9A9A9" />
 
                         <TextView
-                            android:id="@+id/tv_nguoi_lien_he"
+                            android:id="@+id/tv_contact_person"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="#555555"
@@ -202,7 +202,7 @@
                             android:textColor="#A9A9A9" />
 
                         <TextView
-                            android:id="@+id/tv_sdt"
+                            android:id="@+id/tv_phone_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="#555555"
@@ -218,7 +218,7 @@
                     android:textColor="#A9A9A9" />
 
                 <TextView
-                    android:id="@+id/tv_dia_chi"
+                    android:id="@+id/tv_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#555555"
@@ -263,25 +263,25 @@
                 </LinearLayout>
 
                 <RadioGroup
-                    android:id="@+id/rg_trang_thai"
+                    android:id="@+id/rg_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <RadioButton
-                        android:id="@+id/rb_chua_tiep_nhan"
+                        android:id="@+id/rb_pending"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chưa tiếp nhận" />
 
                     <RadioButton
-                        android:id="@+id/rb_da_tiep_nhan"
+                        android:id="@+id/rb_recived"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Đã tiếp nhận" />
 
                     <RadioButton
-                        android:id="@+id/rb_da_hoan_thanh"
+                        android:id="@+id/rb_done"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Đã hoàn thành" />
@@ -293,7 +293,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <Button
-            android:id="@+id/btn_cap_nhat"
+            android:id="@+id/btn_update"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="24dp"
