@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class AddApartActivity extends AppCompatActivity {
     private LinearLayout addApartLayout;
-    private Spinner spinnerBuilding, spinnerFloor;
+    private Spinner spinnerFloor;
     private EditText editTextNumber, editTextArea, editTextDesc;
     private RadioGroup radioGroupStatus;
     private Button buttonAdd;
@@ -42,7 +42,6 @@ public class AddApartActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         // Ánh xạ các thành phần giao diện
-        spinnerBuilding = findViewById(R.id.edtBuiltApt);
         spinnerFloor = findViewById(R.id.spinFloApt);
         editTextNumber = findViewById(R.id.edtNumberApt);
         editTextArea = findViewById(R.id.edtAreaApt);
@@ -69,13 +68,6 @@ public class AddApartActivity extends AppCompatActivity {
             }
         });
 
-
-        // Thiết lập Spinner cho Tòa (A, B)
-        ArrayAdapter<CharSequence> buildingAdapter = ArrayAdapter.createFromResource(this,
-                R.array.building_array, android.R.layout.simple_spinner_item);
-        buildingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerBuilding.setAdapter(buildingAdapter);
-
         // Thiết lập Spinner cho Tầng (1-15)
         String[] floors = new String[15];
         for (int i = 1; i <= 15; i++) {
@@ -89,7 +81,6 @@ public class AddApartActivity extends AppCompatActivity {
         // Xử lý sự kiện nút Thêm mới
         buttonAdd.setOnClickListener(v -> {
             // Lấy dữ liệu từ các trường nhập liệu
-            String building = spinnerBuilding.getSelectedItem().toString();
             String floor = spinnerFloor.getSelectedItem().toString();
             String number = editTextNumber.getText().toString().trim();
             String area = editTextArea.getText().toString().trim();
@@ -105,12 +96,12 @@ public class AddApartActivity extends AppCompatActivity {
             }
 
             // Kiểm tra trùng lặp trước khi thêm
-            checkApartmentNumberExists(number, building, floor, number, area, desc, status);
+            checkApartmentNumberExists(number, floor, number, area, desc, status);
         });
     }
 
     // Hàm kiểm tra xem apartment_number đã tồn tại chưa
-    private void checkApartmentNumberExists(String apartmentNumber, String building, String floor, String number, String area, String desc, String status) {
+    private void checkApartmentNumberExists(String apartmentNumber, String floor, String number, String area, String desc, String status) {
         db.collection("apartments")
                 .whereEqualTo("apartment_number", apartmentNumber)
                 .get()
@@ -122,7 +113,7 @@ public class AddApartActivity extends AppCompatActivity {
                             Toast.makeText(AddApartActivity.this, "Số căn hộ đã tồn tại!", Toast.LENGTH_SHORT).show();
                         } else {
                             // Nếu không trùng, thêm vào Firestore
-                            addApartmentToFirestore(building, floor, number, area, desc, status);
+                            addApartmentToFirestore(floor, number, area, desc, status);
                         }
                     } else {
                         Toast.makeText(AddApartActivity.this, "Lỗi khi kiểm tra: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -132,12 +123,11 @@ public class AddApartActivity extends AppCompatActivity {
 
 
     // Hàm thêm căn hộ vào Firestore
-    private void addApartmentToFirestore(String building, String floor, String number, String area, String desc, String status) {
+    private void addApartmentToFirestore(String floor, String number, String area, String desc, String status) {
         // Tạo dữ liệu để thêm vào Firestore
         Map<String, Object> apartment = new HashMap<>();
         apartment.put("apartment_number", number);
         apartment.put("area", area);
-        apartment.put("building", building);
         apartment.put("desc", desc);
         apartment.put("floor", floor);
         apartment.put("status", status);

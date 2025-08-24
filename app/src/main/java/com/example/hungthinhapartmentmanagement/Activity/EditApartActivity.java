@@ -44,7 +44,6 @@ public class EditApartActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         // Ánh xạ các thành phần giao diện
-        spinnerBuilding = findViewById(R.id.edtBuiltApt);
         spinnerFloor = findViewById(R.id.spinFloApt);
         editTextNumber = findViewById(R.id.edtNumberApt);
         editTextArea = findViewById(R.id.edtAreaApt);
@@ -74,18 +73,10 @@ public class EditApartActivity extends AppCompatActivity {
         // Lấy dữ liệu từ Intent
         apartmentId = getIntent().getStringExtra("apartmentId");
         String apartmentNumber = getIntent().getStringExtra("apartmentNumber");
-        String building = getIntent().getStringExtra("building");
         String floor = getIntent().getStringExtra("floor");
         String area = getIntent().getStringExtra("area");
         String desc = getIntent().getStringExtra("desc");
         String status = getIntent().getStringExtra("status");
-
-        // Thiết lập Spinner cho Tòa (A, B)
-        ArrayAdapter<CharSequence> buildingAdapter = ArrayAdapter.createFromResource(this,
-                R.array.building_array, android.R.layout.simple_spinner_item);
-        buildingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerBuilding.setAdapter(buildingAdapter);
-        spinnerBuilding.setSelection(building.equals("A") ? 0 : 1); // Đặt giá trị mặc định
 
         // Thiết lập Spinner cho Tầng (1-15)
         String[] floors = new String[15];
@@ -110,7 +101,6 @@ public class EditApartActivity extends AppCompatActivity {
 
         // Xử lý sự kiện nút Cập nhật
         buttonUpdate.setOnClickListener(v -> {
-            String newBuilding = spinnerBuilding.getSelectedItem().toString();
             String newFloor = spinnerFloor.getSelectedItem().toString();
             String newNumber = editTextNumber.getText().toString().trim();
             String newArea = editTextArea.getText().toString().trim();
@@ -124,15 +114,15 @@ public class EditApartActivity extends AppCompatActivity {
                 return;
             }
 
-            String newApartmentNumber = newBuilding + newFloor + newNumber;
+            String newApartmentNumber = newNumber;
 
             // Kiểm tra trùng lặp trước khi cập nhật (trừ chính nó)
-            checkApartmentNumberExistsForUpdate(apartmentId, newApartmentNumber, newBuilding, newFloor, newNumber, newArea, newDesc, newStatus);
+            checkApartmentNumberExistsForUpdate(apartmentId, newApartmentNumber, newFloor, newNumber, newArea, newDesc, newStatus);
         });
     }
 
     // Hàm kiểm tra trùng lặp khi cập nhật
-    private void checkApartmentNumberExistsForUpdate(String currentId, String apartmentNumber, String building, String floor, String number, String area, String desc, String status) {
+    private void checkApartmentNumberExistsForUpdate(String currentId, String apartmentNumber, String floor, String number, String area, String desc, String status) {
         db.collection("apartments")
                 .whereEqualTo("apartment_number", apartmentNumber)
                 .get()
@@ -149,7 +139,7 @@ public class EditApartActivity extends AppCompatActivity {
                             }
                         }
                         // Nếu không trùng hoặc trùng với chính nó, thực hiện cập nhật
-                        updateApartmentInFirestore(currentId, building, floor, number, area, desc, status);
+                        updateApartmentInFirestore(currentId, floor, number, area, desc, status);
                     } else {
                         Toast.makeText(EditApartActivity.this, "Lỗi khi kiểm tra: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -157,11 +147,10 @@ public class EditApartActivity extends AppCompatActivity {
     }
 
     // Hàm cập nhật căn hộ trong Firestore
-    private void updateApartmentInFirestore(String id, String building, String floor, String number, String area, String desc, String status) {
+    private void updateApartmentInFirestore(String id, String floor, String number, String area, String desc, String status) {
         Map<String, Object> apartment = new HashMap<>();
         apartment.put("apartment_number", number);
         apartment.put("area", area);
-        apartment.put("building", building);
         apartment.put("desc", desc);
         apartment.put("floor", floor);
         apartment.put("status", status);

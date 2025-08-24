@@ -135,6 +135,7 @@ public class ApartmentManagement extends AppCompatActivity {
 
     public void fetchApartment() {
         db.collection("apartments")
+                .orderBy("apartment_number", com.google.firebase.firestore.Query.Direction.ASCENDING)
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -143,12 +144,11 @@ public class ApartmentManagement extends AppCompatActivity {
                             String id = document.getId();
                             String apartmentNumber = document.getString("apartment_number");
                             String area = document.getString("area");
-                            String building = document.getString("building");
                             String desc = document.getString("desc");
                             String floor = document.getString("floor");
                             String status = document.getString("status");
 
-                            Apartment apartment = new Apartment(id, apartmentNumber, area, building, desc, floor, status);
+                            Apartment apartment = new Apartment(id, apartmentNumber, area, desc, floor, status);
                             apartmentList.add(apartment);
                             filteredList.add(apartment);
                         }

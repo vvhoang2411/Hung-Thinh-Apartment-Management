@@ -29,6 +29,8 @@
         <activity android:name=".Activity.ResidentManagement" />
         <activity android:name=".Activity.AddApartActivity"/>
         <activity android:name=".Activity.EditApartActivity"/>
+        <activity android:name=".Activity.AddResidentActivity"/>
+        <activity android:name=".Activity.EditResidentActivity"/>
 
     </application>
 

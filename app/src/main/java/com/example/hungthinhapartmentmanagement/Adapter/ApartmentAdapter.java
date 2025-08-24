@@ -45,7 +45,6 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.Apar
         Apartment apartment = apartmentList.get(position);
         holder.tvApartmentNumber.setText(apartment.getApartmentNumber());
         holder.tvArea.setText(apartment.getArea() + " m²");
-        holder.tvBuilding.setText(apartment.getBuilding());
         holder.tvDesc.setText(apartment.getDesc());
         holder.tvFloor.setText(apartment.getFloor());
         holder.tvStatus.setText("● " + apartment.getStatus());
@@ -64,7 +63,6 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.Apar
             Intent intent = new Intent(context, EditApartActivity.class);
             intent.putExtra("apartmentId", apartment.getId()); // Truyền document ID
             intent.putExtra("apartmentNumber", apartment.getApartmentNumber());
-            intent.putExtra("building", apartment.getBuilding());
             intent.putExtra("floor", apartment.getFloor());
             intent.putExtra("area", apartment.getArea());
             intent.putExtra("desc", apartment.getDesc());
@@ -108,14 +106,13 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.Apar
     }
 
     public static class ApartmentViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvApartmentNumber, tvArea, tvBuilding, tvDesc, tvFloor, tvStatus;
+        public TextView tvApartmentNumber, tvArea, tvDesc, tvFloor, tvStatus;
         public ImageButton btnEdit, btnDelete;
 
         public ApartmentViewHolder(View itemView) {
             super(itemView);
             tvApartmentNumber = itemView.findViewById(R.id.tvNumberApt);
             tvArea = itemView.findViewById(R.id.tvAreaApt);
-            tvBuilding = itemView.findViewById(R.id.tvBuildApt);
             tvDesc = itemView.findViewById(R.id.tvDescApt);
             tvFloor = itemView.findViewById(R.id.tvFloApt);
             tvStatus = itemView.findViewById(R.id.tvStatus);

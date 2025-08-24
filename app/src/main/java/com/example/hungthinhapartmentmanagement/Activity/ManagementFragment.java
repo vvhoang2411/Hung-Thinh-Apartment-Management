@@ -53,6 +53,14 @@ public class ManagementFragment extends Fragment {
             }
         });
 
+        btnResManage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ResidentManagement.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 }
