@@ -14,4 +14,54 @@
     <string name="status_unknown">Trạng thái không xác định</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <style name="CircularFab" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Mảng cho spinnerLoaiHoaDon -->
+    <string-array name="loai_hoa_don">
+        <item>Tất cả</item>
+        <item>Dịch vụ</item>
+        <item>Điện</item>
+        <item>Nước</item>
+        <item>Gửi xe</item>
+        <item>Khác</item>
+    </string-array>
+
+    <!-- Mảng cho spinnerTrangThai -->
+    <string-array name="trang_thai">
+        <item>Tất cả</item>
+        <item>Đã thanh toán</item>
+        <item>Chưa thanh toán</item>
+    </string-array>
+
+    <string-array name="loaiHoaDon">
+        <item>Dịch vụ</item>
+        <item>Điện</item>
+        <item>Nước</item>
+        <item>Gửi xe</item>
+        <item>Khác</item>
+    </string-array>
+
+    <string-array name="trangThai">
+        <item>Đã thanh toán</item>
+        <item>Chưa thanh toán</item>
+    </string-array>
+
+    <string-array name="thang">
+        <item>Tháng 1</item>
+        <item>Tháng 2</item>
+        <item>Tháng 3</item>
+        <item>Tháng 4</item>
+        <item>Tháng 5</item>
+        <item>Tháng 6</item>
+        <item>Tháng 7</item>
+        <item>Tháng 8</item>
+        <item>Tháng 9</item>
+        <item>Tháng 10</item>
+        <item>Tháng 11</item>
+        <item>Tháng 12</item>
+    </string-array>
 </resources>

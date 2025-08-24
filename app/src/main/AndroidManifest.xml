@@ -12,10 +12,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HungThinhApartmentManagement">
         <activity
-            android:name=".Activity.NotificationDetailActivity"
+            android:name=".Activity.ManagementInvoiceUpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ManagementInvoiceCreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ManagementInvoiceListActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.ResidentMainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Activity.NotificationDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Activity.RepairRequestListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.RepairRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ManagementFindApartmentActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,12 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activity.RepairRequestListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.RepairRequestActivity"
-            android:exported="false" />
     </application>
 
 </manifest>
