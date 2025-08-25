@@ -12,7 +12,88 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HungThinhApartmentManagement">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.vvhManagementStatisticalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.hdhAddApartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.hdhEditApartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.hdhAddResidentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.hdhResidentManagement"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.hdhEditResidentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.hdhApartmentManagement"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nmtManagementControlDeviceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.hdhMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nmtManagementEditDeviceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nmtManagementAddDeviceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nqkResidentMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nqkManagementInvoiceUpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nqkManagementInvoiceCreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nqkManagementInvoiceListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nqkManagementFindApartmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.vvhResidentPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.vvhResidentInvoiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nmtManagementNotificationCreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nmtManagementNotificationDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ManagementNotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nqkNotificationDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nmtManagementDetailRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nmtManagementRepairRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.vvhEditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nqkRepairRequestListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.nqkRepairRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.hdhLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
