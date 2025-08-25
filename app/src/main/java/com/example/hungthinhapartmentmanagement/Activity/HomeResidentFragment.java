@@ -38,7 +38,7 @@ public class HomeResidentFragment extends Fragment {
         }
 
         // Get reference to the Feedback button
-
+        ImageButton btnFeedback = view.findViewById(R.id.btnFeedback);
         // Get reference to the Invoice button
         ImageButton btnInvoice = view.findViewById(R.id.btnInvoice);
 

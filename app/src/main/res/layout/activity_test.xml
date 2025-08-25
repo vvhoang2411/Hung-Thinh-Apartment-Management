@@ -1,0 +1,247 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF">
+
+    <!-- Header xanh -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#2482D8"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Quay lại"
+            android:layout_marginStart="4dp"
+            app:tint="#FFF" />
+
+        <TextView
+            android:id="@+id/tvHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Thông tin cá nhân"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:textSize="19sp" />
+
+        <ImageButton
+            android:id="@+id/btnEditProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_menu_edit"
+            android:background="@android:color/transparent"
+            android:contentDescription="Sửa thông tin"
+            android:layout_marginEnd="4dp"
+            app:tint="#FFF" />
+    </RelativeLayout>
+
+    <!-- Thông tin: từng dòng 2 cột, nền trắng rõ ràng chia line -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFF"
+        android:divider="?android:attr/dividerHorizontal"
+        android:showDividers="middle"
+        android:paddingHorizontal="0dp">
+
+        <!-- Họ và tên -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Họ và tên"
+                android:textColor="#555"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/tvFullName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="Nguyễn Minh Tuấn"
+                android:textColor="#223261"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <!-- Ngày sinh -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ngày sinh"
+                android:textColor="#555"
+                android:textSize="15sp"/>
+            <TextView android:id="@+id/tvBirthday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="10/12/2004"
+                android:textColor="#223261"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <!-- Giới tính -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giới tính"
+                android:textColor="#555"
+                android:textSize="15sp"/>
+            <TextView android:id="@+id/tvGender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="Nam"
+                android:textColor="#223261"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <!-- Căn cước công dân -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Căn cước công dân"
+                android:textColor="#555"
+                android:textSize="15sp"/>
+            <TextView android:id="@+id/tvCCCD"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="001204026232"
+                android:textColor="#223261"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <!-- Nơi ở hiện tại -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nơi ở hiện tại"
+                android:textColor="#555"
+                android:textSize="15sp"/>
+            <TextView android:id="@+id/tvApartmentId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="Khê Hồi"
+                android:textColor="#223261"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <!-- Số điện thoại -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số điện thoại"
+                android:textColor="#555"
+                android:textSize="15sp"/>
+            <TextView android:id="@+id/tvPhone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="0338536684"
+                android:textColor="#223261"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <!-- Email -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="#555"
+                android:textSize="15sp"/>
+            <TextView android:id="@+id/tvEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="Chưa cập nhật"
+                android:textColor="#BDBDBD"
+                android:textStyle="italic"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <!-- Hình ảnh CCCD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hình ảnh CCCD"
+                android:textColor="#555"
+                android:textSize="15sp"/>
+            <TextView android:id="@+id/tvImageCccd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="Chưa cập nhật"
+                android:textColor="#BDBDBD"
+                android:textStyle="italic"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,12 +1,16 @@
 package com.example.hungthinhapartmentmanagement.Activity;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,22 +20,20 @@ import com.example.hungthinhapartmentmanagement.Helper.ResidentHelper;
 import com.example.hungthinhapartmentmanagement.Model.Resident;
 import com.example.hungthinhapartmentmanagement.R;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class InfomationResidentFragment extends Fragment {
 
     private ImageButton btnEditProfile;
     private TextView tvApartmentId, tvFullName, tvGender, tvPhone, tvEmail, tvRelationship, tvBirthday;
-    private String email = "vvh@gmail.com";
+    private String email;
     private ResidentHelper residentHelper;
 
     // Biến để lưu resident hiện tại
     private Resident currentResident;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate layout
         View view = inflater.inflate(R.layout.fragment_infomation_resident, container, false);
 
@@ -52,6 +54,15 @@ public class InfomationResidentFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            email = bundle.getString("email");
+        } else {
+            Log.e(TAG, "Bundle is null.");
+            Toast.makeText(getContext(), "Không thể tải dữ liệu người dùng", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         // Khởi tạo ResidentHelper
         residentHelper = new ResidentHelper();
 
@@ -66,11 +77,7 @@ public class InfomationResidentFragment extends Fragment {
                 intent.putExtra("phone", currentResident.getPhone());
                 intent.putExtra("gender", currentResident.getGender());
                 intent.putExtra("email", currentResident.getEmail());
-
-                if (currentResident.getBirthday() != null) {
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    intent.putExtra("birthday", sdf.format(currentResident.getBirthday()));
-                }
+                intent.putExtra("birthday", currentResident.getBirthday()); // Truyền String birthday
 
                 startActivity(intent);
             }
@@ -83,7 +90,7 @@ public class InfomationResidentFragment extends Fragment {
             public void onResidentsLoaded(List<Resident> residents) {
                 if (!residents.isEmpty() && getActivity() != null) {
                     Resident resident = residents.get(0);
-                    currentResident = resident; // lưu lại resident
+                    currentResident = resident; // Lưu lại resident
 
                     tvApartmentId.setText("Căn hộ: " + resident.getApartmentId());
                     tvFullName.setText("Họ tên: " + resident.getFullName());
@@ -93,8 +100,7 @@ public class InfomationResidentFragment extends Fragment {
                     tvRelationship.setText(resident.isRelationship() ? "Quan hệ: Chủ hộ" : "Quan hệ: Thành viên");
 
                     if (resident.getBirthday() != null) {
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                        tvBirthday.setText("Ngày sinh: " + sdf.format(resident.getBirthday()));
+                        tvBirthday.setText("Ngày sinh: " + resident.getBirthday());
                     } else {
                         tvBirthday.setText("");
                     }

@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.hungthinhapartmentmanagement.R;
-import com.example.hungthinhapartmentmanagement.Activity.HomeResidentFragment;
-import com.example.hungthinhapartmentmanagement.Activity.InfomationResidentFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ResidentMainActivity extends AppCompatActivity {
@@ -59,10 +57,7 @@ public class ResidentMainActivity extends AppCompatActivity {
             Log.d(TAG, "Loading HomeResidentFragment");
             selectedItemId = R.id.nav_home;
             defaultFragment = new HomeResidentFragment();
-//        } else if ("NotificationResident".equals(fragmentToLoad)) {
-//            Log.d(TAG, "Loading NotificationResidentFragment");
-//            selectedItemId = R.id.nav_notification;
-//            defaultFragment = new NotificationResidentFragment();
+
         } else if ("InformationResident".equals(fragmentToLoad)) {
             Log.d(TAG, "Loading InfomationResidentFragment");
             selectedItemId = R.id.nav_information;
@@ -86,8 +81,7 @@ public class ResidentMainActivity extends AppCompatActivity {
 
         if (itemId == R.id.nav_home) {
             selectedFragment = new HomeResidentFragment();
-//        } else if (itemId == R.id.nav_notification) {
-//            selectedFragment = new NotificationResidentFragment();
+
         } else if (itemId == R.id.nav_information) {
             selectedFragment = new InfomationResidentFragment();
         } else {

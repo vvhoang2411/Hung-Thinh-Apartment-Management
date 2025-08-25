@@ -25,12 +25,22 @@
 
         <activity
             android:name=".Activity.ResidentInvoiceActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".Activity"
+            android:exported="false"/>
+
+
+        <activity
+            android:name=".Activity.ResidentMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
 
 
     </application>
