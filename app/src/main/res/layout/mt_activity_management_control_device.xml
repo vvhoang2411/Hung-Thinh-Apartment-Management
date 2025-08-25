@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:fitsSystemWindows="true" >
 
     <!-- Bọc RelativeLayout trong AppBarLayout để CoordinatorLayout hoạt động đúng -->
     <com.google.android.material.appbar.AppBarLayout
@@ -53,7 +52,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_add"
                 app:tint="@android:color/white"
-                android:contentDescription="Thêm thiết bị mới"/>
+                android:contentDescription="Thêm thiết bị mới" />
 
         </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -64,7 +63,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:listitem="@layout/mt_item_device" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

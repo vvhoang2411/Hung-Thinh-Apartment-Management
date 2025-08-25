@@ -4,4 +4,12 @@
     <string name="form_content"><b>Nội dung </b><font color='#FF0000'>*</font></string>
     <string name="form_media"><b>Ảnh/Video </b><font color='#FF0000'>*</font></string>
 
+    <string-array name="device_types">
+        <item>Điều hòa</item>
+        <item>Camera</item>
+        <item>Máy giặt</item>
+        <item>Tủ lạnh</item>
+        <item>Tivi</item>
+    </string-array>
+
 </resources>

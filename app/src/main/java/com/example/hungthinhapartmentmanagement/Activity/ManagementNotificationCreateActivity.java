@@ -95,12 +95,12 @@ public class ManagementNotificationCreateActivity extends AppCompatActivity {
             }
 
             String targetType = "";
-            String targetValue = null;
+            String targetValue ="";
 
             int checkedId = recipientOptions.getCheckedRadioButtonId();
             if (checkedId == R.id.radio_all_residents) {
                 targetType = "all";
-                targetValue = null;
+                targetValue = "";
             } else if (checkedId == R.id.radio_specific_floor) {
                 targetType = "floor";
                 targetValue = floorInput.getText().toString().trim();
