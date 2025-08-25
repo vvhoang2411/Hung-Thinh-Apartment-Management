@@ -34,6 +34,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class AddResidentActivity extends AppCompatActivity {
     private EditText edtName, edtBirth, edtPhone, edtEmail, edtPassword;
@@ -45,6 +46,8 @@ public class AddResidentActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private List<String> availableRooms;
+    private static final String EMAIL_PATTERN = "^[A-Za-z0-9+_.-]+@(.+)$";
+    private static final String PHONE_PATTERN = "^0[0-9]{9,10}$";
 
 
 
@@ -173,40 +176,74 @@ public class AddResidentActivity extends AppCompatActivity {
             return;
         }
 
-        // Tạo tài khoản trên Firebase Authentication
-        mAuth.createUserWithEmailAndPassword(email, password)
+        if (!isValidEmail(email)) {
+            Toast.makeText(this, "Email không đúng định dạng (ví dụ: user@example.com)", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!isValidPhone(phone)) {
+            Toast.makeText(this, "Số điện thoại không hợp lệ (phải bắt đầu bằng 0 và có 10-11 chữ số)", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Kiểm tra email đã tồn tại trong collection "users"
+        db.collection("users")
+                .whereEqualTo("email", email)
+                .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        if (user != null) {
-                            String uid = user.getUid();
-
-                            // Thêm vào collection "users"
-                            User newUser = new User(email, name, phone, "Cư dân");
-                            db.collection("users").document(uid)
-                                    .set(newUser)
-                                    .addOnSuccessListener(aVoid -> {
-                                        // Thêm vào collection "residents" với đầy đủ thông tin
-                                        Resident resident = new Resident(apartmentNumber, birth, email, name,
-                                                gender, phone, relationship, uid);
-                                        db.collection("residents").document(uid)
-                                                .set(resident)
-                                                .addOnSuccessListener(aVoid1 -> {
-                                                    Toast.makeText(AddResidentActivity.this, "Thêm cư dân thành công", Toast.LENGTH_SHORT).show();
-                                                    Intent intent = new Intent(AddResidentActivity.this, ResidentManagement.class);
-                                                    startActivity(intent);
-                                                    finish();
-                                                })
-                                                .addOnFailureListener(e -> Toast.makeText(AddResidentActivity.this, "Lỗi khi thêm cư dân", Toast.LENGTH_SHORT).show());
-                                    })
-                                    .addOnFailureListener(e -> Toast.makeText(AddResidentActivity.this, "Lỗi khi thêm user", Toast.LENGTH_SHORT).show());
+                        if (!task.getResult().isEmpty()) {
+                            // Email đã tồn tại
+                            Toast.makeText(AddResidentActivity.this, "Email đã được sử dụng, vui lòng chọn email khác!", Toast.LENGTH_SHORT).show();
+                            return;
                         }
+                        // Nếu email chưa tồn tại, tiếp tục tạo tài khoản
+                        mAuth.createUserWithEmailAndPassword(email, password)
+                                .addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        if (user != null) {
+                                            String uid = user.getUid();
+
+                                            // Thêm vào collection "users"
+                                            User newUser = new User(email, name, phone, "Cư dân");
+                                            db.collection("users").document(uid)
+                                                    .set(newUser)
+                                                    .addOnSuccessListener(aVoid -> {
+                                                        // Thêm vào collection "residents" với đầy đủ thông tin
+                                                        Resident resident = new Resident(apartmentNumber, birth, email, name,
+                                                                gender, phone, relationship, uid);
+                                                        db.collection("residents").document(uid)
+                                                                .set(resident)
+                                                                .addOnSuccessListener(aVoid1 -> {
+                                                                    Toast.makeText(AddResidentActivity.this, "Thêm cư dân thành công", Toast.LENGTH_SHORT).show();
+                                                                    Intent intent = new Intent(AddResidentActivity.this, ResidentManagement.class);
+                                                                    startActivity(intent);
+                                                                    finish();
+                                                                })
+                                                                .addOnFailureListener(e -> Toast.makeText(AddResidentActivity.this, "Lỗi khi thêm cư dân: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                                                    })
+                                                    .addOnFailureListener(e -> Toast.makeText(AddResidentActivity.this, "Lỗi khi thêm user: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                                        }
+                                    } else {
+                                        Toast.makeText(AddResidentActivity.this, "Đăng ký thất bại: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                     } else {
-                        Toast.makeText(AddResidentActivity.this, "Đăng ký thất bại: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddResidentActivity.this, "Lỗi khi kiểm tra email: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
+    private boolean isValidEmail(String email) {
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        return pattern.matcher(email).matches();
+    }
+
+    private boolean isValidPhone(String phone) {
+        Pattern pattern = Pattern.compile(PHONE_PATTERN);
+        return pattern.matcher(phone).matches();
+    }
 
     private void hideKeyboard() {
         View view = this.getCurrentFocus();

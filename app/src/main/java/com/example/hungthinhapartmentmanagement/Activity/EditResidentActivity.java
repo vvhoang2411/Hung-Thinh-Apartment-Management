@@ -31,6 +31,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class EditResidentActivity extends AppCompatActivity {
     private EditText edtName, edtBirth, edtPhone, edtEmail;
@@ -42,6 +43,7 @@ public class EditResidentActivity extends AppCompatActivity {
     private List<String> availableRooms;
     private String residentId;
     private ScrollView editResLayout;
+    private static final String PHONE_PATTERN = "^0[0-9]{9,10}$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -230,6 +232,11 @@ public class EditResidentActivity extends AppCompatActivity {
             return;
         }
 
+        if (!isValidPhone(phone)) {
+            Toast.makeText(this, "Số điện thoại không hợp lệ (phải bắt đầu bằng 0 và có 10-11 chữ số)", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         // Cập nhật "residents"
         Map<String, Object> residentUpdates = new HashMap<>();
         residentUpdates.put("apartmentId", apartmentId);
@@ -259,6 +266,11 @@ public class EditResidentActivity extends AppCompatActivity {
                 })
                 .addOnFailureListener(e -> Toast.makeText(EditResidentActivity.this, "Lỗi khi cập nhật residents: " + e.getMessage(), Toast.LENGTH_SHORT).show());
 
+    }
+
+    private boolean isValidPhone(String phone) {
+        Pattern pattern = Pattern.compile(PHONE_PATTERN);
+        return pattern.matcher(phone).matches();
     }
 
     private void hideKeyboard() {
