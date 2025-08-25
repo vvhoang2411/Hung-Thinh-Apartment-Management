@@ -64,7 +64,6 @@ public class AddApartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AddApartActivity.this, ApartmentManagement.class);
                 startActivity(intent);
-                finish();
             }
         });
 

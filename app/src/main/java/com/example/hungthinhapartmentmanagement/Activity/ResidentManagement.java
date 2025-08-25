@@ -75,7 +75,6 @@ public class ResidentManagement extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ResidentManagement.this, AddResidentActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 

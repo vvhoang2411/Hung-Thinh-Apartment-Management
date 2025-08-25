@@ -120,7 +120,6 @@ public class EditResidentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(EditResidentActivity.this, ResidentManagement.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
